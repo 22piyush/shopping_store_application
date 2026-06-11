@@ -26,9 +26,14 @@ function Navbar() {
           <p>CONTACT</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-
-
       </ul>
+
+      <div className="flex items-center gap-6">
+        <img src={assets.search_icon} className="w-5 cursor-pointer" />
+        <div className="group relative">
+          <img src="w-5 cursor-pointer"/>
+        </div>
+      </div>
     </div>
   );
 }
