@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
+  const [visible, setVisible] = useState(false);
+
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       <img src={assets.logo} className="w-36" />
@@ -46,7 +49,64 @@ function Navbar() {
             10
           </p>
         </Link>
-        <img src={assets.menu_icon} className="w-5 cursor-pointer sm:hidden" />
+        <img
+          onClick={() => setVisible(true)}
+          src={assets.menu_icon}
+          className="w-5 cursor-pointer sm:hidden"
+        />
+      </div>
+
+      {/* Sidebar menu for small screen  */}
+      <div
+        className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? "w-full" : "w-0"}`}
+      >
+        <div className="flex flex-col bg-white h-full text-gray-700">
+          {/* Back Button */}
+          <div
+            onClick={() => setVisible(false)}
+            className="flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-gray-100 transition"
+          >
+            <img
+              className="h-4 rotate-180"
+              src={assets.dropdown_icon}
+              alt="back"
+            />
+            <p className="font-medium">Back</p>
+          </div>
+
+          {/* Menu Links */}
+          <NavLink
+            to="/"
+            onClick={() => setVisible(false)}
+            className="px-6 py-4 border-b hover:bg-gray-100 hover:text-black transition font-medium"
+          >
+            HOME
+          </NavLink>
+
+          <NavLink
+            to="/collection"
+            onClick={() => setVisible(false)}
+            className="px-6 py-4 border-b hover:bg-gray-100 hover:text-black transition font-medium"
+          >
+            COLLECTION
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            onClick={() => setVisible(false)}
+            className="px-6 py-4 border-b hover:bg-gray-100 hover:text-black transition font-medium"
+          >
+            ABOUT
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            onClick={() => setVisible(false)}
+            className="px-6 py-4 border-b hover:bg-gray-100 hover:text-black transition font-medium"
+          >
+            CONTACT
+          </NavLink>
+        </div>
       </div>
     </div>
   );
