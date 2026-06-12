@@ -9,11 +9,12 @@ import Login from "./pages/Login";
 import PlaceOrder from "./pages/PlaceOrder";
 import Orders from "./pages/Orders";
 import Navbar from "./components/Navbar";
+import NotFound from "./NotFound";
 
 function App() {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
@@ -24,6 +25,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/orders" element={<NotFound />} />
+
+        {/* 404 Route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
