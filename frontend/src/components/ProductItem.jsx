@@ -13,6 +13,11 @@ function ProductItem({ id, image, name, price }) {
           className="hover:scale-110 transition ease-in-out"
         />
       </div>
+      <p className="p-3 pb-1 text-sm">{name}</p>
+      <p className="text-sm font-medium ">
+        {currency}
+        {price}
+      </p>
     </Link>
   );
 }
