@@ -32,6 +32,12 @@ function Footer() {
           </ul>
         </div>
       </div>
+      <div className="w-full mx-auto">
+        <hr />
+        <p className="py-5 text-sm text-center">
+          Copyright 2026@forever.com - All Right Reserved
+        </p>
+      </div>
     </div>
   );
 }
